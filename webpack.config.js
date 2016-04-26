@@ -27,7 +27,7 @@ const common = {
     loaders: [
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?name=img/img-[hash:6].[ext]"
+        loader: 'file-loader?name=img/img-[hash:6].[ext]'
       },
       {
         test: /\.jsx?$/,
@@ -101,8 +101,6 @@ if (TARGET === 'build') {
       'style-loader','css-loader?modules&importLoaders=1&localIdentName=[hash:base64:5]!postcss-loader!stylus-loader'),
     include: PATHS.app
   });
-
-  console.log(process.env.NODE_ENV);
 
   module.exports = buildSettings;
 }

@@ -21,10 +21,15 @@ area-opacity = 0.9
   padding 40px margin-body-left--wide 50px
   opacity area-opacity
   animation fadein 0.4s trans-main
+  overflow auto
   
-  @media (min-width: 820px)
+  @media (min-width: media-width-small)
     top calc(50% - 5px)
     height auto
+    
+  @media (min-width: media-width-medium)
+    top 33%
+    width 300px
 
 .navList
   list-style-type none
@@ -42,12 +47,12 @@ area-opacity = 0.9
   &:focus  
     border-bottom 1px solid color-sub--light
   
-  @media (min-width: 820px)
+  @media (min-width: media-width-small)
     display inline-block
     margin-right 30px
 
 .navLink
   display block
-  color color-sub--dark
+  color color-sub--light
   text-decoration none
   font-size 25px

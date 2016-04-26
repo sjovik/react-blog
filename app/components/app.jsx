@@ -41,5 +41,5 @@ export default class App extends React.Component {
     );
   }
 
-  renderMenu() { return <Menu />; }
+  renderMenu() { return <Menu close={this.toggleMenu} />; }
 }
