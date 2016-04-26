@@ -26,6 +26,10 @@ const common = {
   module: {
     loaders: [
       {
+        test: /\.(png|jpg|gif)$/,
+        loader: "file-loader?name=img/img-[hash:6].[ext]"
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         include: PATHS.app,
@@ -80,7 +84,12 @@ if (TARGET === 'build') {
         filename: 'index.html',
         template: path.join(PATHS.app, 'index.html')
       }),
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      })
     ]
   });
 
@@ -92,6 +101,8 @@ if (TARGET === 'build') {
       'style-loader','css-loader?modules&importLoaders=1&localIdentName=[hash:base64:5]!postcss-loader!stylus-loader'),
     include: PATHS.app
   });
+
+  console.log(process.env.NODE_ENV);
 
   module.exports = buildSettings;
 }

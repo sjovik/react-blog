@@ -1,0 +1,53 @@
+@import '../frame/theme'
+
+area-opacity = 0.9
+
+@keyframes fadein {
+  0% {
+    opacity 0
+  }
+  100% {
+    opacity area-opacity
+  }
+}
+.area
+  box-sizing border-box
+  background color-main
+  position fixed
+  top (size-header-height - 5px)
+  left 0
+  height 'calc(100% - %s)' % size-header-height
+  width 100%
+  padding 40px margin-body-left--wide 50px
+  opacity area-opacity
+  animation fadein 0.4s trans-main
+  
+  @media (min-width: 820px)
+    top calc(50% - 5px)
+    height auto
+
+.navList
+  list-style-type none
+  padding 0
+  margin 0
+  
+.navItem
+  height 50px
+  line-height 50px
+  border-bottom 1px solid transparent
+  transition border-color 0.4s trans-main
+  
+  &:hover,
+  &:active,
+  &:focus  
+    border-bottom 1px solid color-sub--light
+  
+  @media (min-width: 820px)
+    display inline-block
+    margin-right 30px
+
+.navLink
+  display block
+  color color-sub--dark
+  text-decoration none
+  font-size 25px

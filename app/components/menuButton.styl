@@ -1,0 +1,64 @@
+@import '../frame/theme'
+
+button-side = 45px
+
+.button
+  position fixed
+  top (size-header-height)
+  transform translateY(-(round(button-side / 2)))
+  color color-sub--dark
+  cursor pointer
+  width button-side
+  
+  @media (min-width: 820px)
+    left 50px
+    top 50%
+  
+.icon
+  position relative
+  height 26px
+  width 26px
+  margin-bottom 4px
+  
+  @media (min-width: 820px)
+    margin auto
+  
+  .bars
+    position relative
+    left 1px
+    width 100%
+    height 100%
+    
+    .bar
+      position absolute
+      top 50%
+      background color-sub--dark
+      height 1px
+      width 100%
+      transition transform 400ms trans-main
+      
+      &:nth-child(1)
+        transform rotate(45deg)
+        
+      &:nth-child(2)
+        transform scale(0, 0)
+        
+      &:nth-child(3)
+        transform rotate(-45deg)
+      
+      &:nth-child(1):not(.barHidden)
+        transform translateY(-5px) rotate(0)
+      
+      &:nth-child(2):not(.barHidden)
+        transform scale(1,1)
+          
+      &:nth-child(3):not(.barHidden)
+        transform translateY(5px) rotate(0)
+
+.text
+  opacity 0
+  transition none
+  
+  @media (min-width: 820px)
+    transition opacity 700ms trans-main
+    opacity 1

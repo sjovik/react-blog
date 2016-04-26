@@ -1,8 +1,7 @@
 {
   "parser": "babel-eslint",
   "ecmaFeatures": {
-    "modules": true,
-    "jsx": true
+    "modules": true
   },
   "env": {
     "browser": true,
@@ -31,7 +30,9 @@
     ],
     "eol-last": [
       2
-    ]
+    ],
+    "react/display-name": 1,
+    "react/prop-types": 1
   },
   "plugins": [
     "react"
