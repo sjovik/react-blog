@@ -33,13 +33,11 @@ export default class App extends React.Component {
             <Logo centered={true} />
           </div>
           <Article />
-          <Footer><a href="#">hello</a></Footer>
-          { this.renderMenu() }
+          <Footer></Footer>
+          <Menu close={this.toggleMenu} open={this.state.menu} />
           <MenuButton open={this.state.menu} onClick={this.toggleMenu} />
         </div>
       </div>
     );
   }
-
-  renderMenu() { return <Menu close={this.toggleMenu} open={this.state.menu} />; }
 }
