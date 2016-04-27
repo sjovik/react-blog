@@ -4,11 +4,11 @@ import styles from './app.styl';
 import React from 'react';
 // import AltContainer from 'alt-container';
 
-import Article from './article';
+import Article from './article/article';
 import Logo from './logo';
 import Footer from './footer';
-import MenuButton from './menuButton';
-import Menu from './menu';
+import MenuButton from './menu/menuButton';
+import Menu from './menu/menu';
 
 export default class App extends React.Component {
   constructor(props) {

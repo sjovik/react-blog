@@ -1,14 +1,14 @@
 import styles from './article.styl';
 
 import React from 'react';
+
 import Header from './header';
-import BgImage from './bgImage';
 import List from './list';
-import TextLink from './textLink';
+import TextLink from '../textLink';
+import BgImage from '../bgImage';
 
-import fish from '../src/img/fish.png';
-
-import data from '../src/data.js';
+import fish from '../../src/img/fish.png';
+import data from '../../src/data.js';
 
 export default class Article extends React.Component {
   render() {

@@ -1,0 +1,48 @@
+@import '../../frame/theme'
+@import './navList'
+
+@keyframes slidein {
+  0% {
+    left 100%
+  }
+  100% {
+    left 0%
+  }
+}
+
+// REVIEW: Reverse animation here since i had problems getting 
+// animation-direction reverse to work. 
+@keyframes slideout {
+  0% {
+    left 0%
+  }
+  100% {
+    left 100%
+  }
+}
+
+.container
+  position absolute
+  top 0
+  width 100%
+  height 100%
+  background color-secondary
+  left 0%
+  animation-name slidein 
+  animation-duration 0.4s 
+  animation-timing-function trans-main
+  
+  &[data-animating = true]
+    left 100%
+    animation-name slideout
+
+.header
+  color #fff
+  font-size 18px
+  cursor pointer
+  margin-bottom 8px
+  margin-right 50px
+  display inline-block
+  
+  @media(min-width: media-width-small) and (max-width: media-width-medium)
+    display none  
