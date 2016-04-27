@@ -16,7 +16,7 @@ export default class MenuButton extends React.Component {
   }
 
   renderTitle() {
-    return <span className={styles.text}>Menu</span>;
+    return <div className={styles.text}>Menu</div>;
   }
 
   renderBars() {

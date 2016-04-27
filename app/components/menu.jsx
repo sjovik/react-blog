@@ -1,13 +1,18 @@
 import styles from './menu.styl';
 
 import React from 'react';
+import classNames from 'classnames';
 
 export default class Menu extends React.Component {
   render() {
     const items = ['Home', 'Categories', 'Contact', 'Shop'];
+    const areaClass = classNames( {
+      [`${styles.area}`]: true,
+      [`${styles.areaHidden}`]: !this.props.open
+    });
 
     return (
-      <div ref={(c) => this.$menu = c} className={styles.area}>
+      <div className={areaClass}>
         <nav>
           <ul className={styles.navList}>
             {items.map((item, index) => {
@@ -20,7 +25,8 @@ export default class Menu extends React.Component {
   }
 }
 
-Menu.propTypes = { close: React.PropTypes.func };
+Menu.propTypes = { close: React.PropTypes.func, open: React.PropTypes.bool };
+Menu.defaultProps = { open: true };
   
 const NavLink = ({close, text, url}) => {
   return (
