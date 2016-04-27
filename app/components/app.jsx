@@ -19,10 +19,15 @@ export default class App extends React.Component {
     };
 
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   toggleMenu() {
     this.setState({ menu: !this.state.menu });
+  }
+
+  closeMenu() {
+    this.setState({ menu: false });
   }
 
   render() {
@@ -34,7 +39,7 @@ export default class App extends React.Component {
           </div>
           <Article />
           <Footer></Footer>
-          <Menu close={this.toggleMenu} open={this.state.menu} />
+          <Menu close={this.closeMenu} open={this.state.menu} />
           <MenuButton open={this.state.menu} onClick={this.toggleMenu} />
         </div>
       </div>
