@@ -26,13 +26,16 @@ export default class SubMenu extends React.Component {
       <div className={styles.container} data-animating={this.state.animating}>
         <ul className={styles.navList}>
           <li className={styles.header} onClick={this.onClick.bind(null, 'back')} >{'< back'}</li>
-          <NavLink text='Recipes' onClick={this.onClick} />
-          <NavLink text='Playlists' onClick={this.onClick} />
-          <NavLink text='Wine' onClick={this.onClick} />
+          {this.props.menu.map((item, index) => {
+            return <NavLink key={index} text={item.text} onClick={this.onClick} />
+          })}
         </ul>
       </div>
     );
   }
 }
 
-SubMenu.propTypes = { onClick: React.PropTypes.func.isRequired };
+SubMenu.propTypes = { 
+  onClick: React.PropTypes.func.isRequired,
+  menu: React.PropTypes.array
+};

@@ -5,22 +5,7 @@ import classNames from 'classnames';
 
 import NavLink from './navLink';
 import SubMenu from './subMenu';
-
-const items = [
-  {
-    text: 'Home'
-  }, 
-  { 
-    text: 'Categories',
-    submenu: true
-  },
-  {
-    text: 'Contact'
-  },
-  {
-    text: 'Shop'
-  } 
-];
+import {menu, submenuCategories} from './statics';
 
 
 export default class Menu extends React.Component {
@@ -43,7 +28,8 @@ export default class Menu extends React.Component {
       }, 400);
     }
 
-    this.props.close();
+    // TODO: Links to site sections, routes?
+    this.props.close(); 
   }
 
   render() {
@@ -56,7 +42,7 @@ export default class Menu extends React.Component {
       <div className={areaClass}>
         <nav>
           <ul className={styles.navList}>
-            {items.map((item, index) => {
+            {menu.map((item, index) => {
               return <NavLink submenu={item.submenu} key={index} onClick={this.onClick} text={item.text} />;
             })}
           </ul>
@@ -67,7 +53,7 @@ export default class Menu extends React.Component {
   }
 
   renderSubmenu() {
-    return <SubMenu title={this.state.submenu} onClick={this.onClick} />;
+    return <SubMenu title={this.state.submenu} menu={submenuCategories} onClick={this.onClick} />;
   }
 }
 
