@@ -13,20 +13,26 @@ export default class Menu extends React.Component {
     super(props);
 
     this.state = {
-      submenu: false
+      submenu: false,
+      submenuAnimating: false
     };
 
     this.onClick = this.onClick.bind(this);
   }
 
   onClick(text, submenu) {
-    if (submenu) return this.setState({submenu: text});
+    // Toggle for double click, mostly for middle screen sizes
+    if (submenu && this.state.submenu === text) text = 'back';
 
     if (text === 'back') {
+      this.setState({ submenuAnimating: true });
+
       return setTimeout(() => {
-        this.setState({submenu: false}); 
+        this.setState({submenu: false, submenuAnimating: false}); 
       }, 400);
     }
+
+    if (submenu) return this.setState({submenu: text});
 
     // TODO: Links to site sections, routes?
     this.props.close(); 
@@ -53,7 +59,7 @@ export default class Menu extends React.Component {
   }
 
   renderSubmenu() {
-    return <SubMenu title={this.state.submenu} menu={submenuCategories} onClick={this.onClick} />;
+    return <SubMenu title={this.state.submenu} menu={submenuCategories} animating={this.state.submenuAnimating} onClick={this.onClick} />;
   }
 }
 

@@ -24,6 +24,9 @@ area-opacity = 0.9
   overflow-y auto
   overflow-x hidden
   
+  @media(min-width: media-width-small) and (max-width: media-width-medium)
+    overflow visible
+  
   @media (min-width: media-width-small)
     top calc(50% - 5px)
     height auto
@@ -33,7 +36,7 @@ area-opacity = 0.9
     width 300px
   
   &Hidden
-    display none
+    visibility hidden
     
     @media (min-width: media-width-medium)
-      display block
+      visibility visible
