@@ -19,7 +19,7 @@ export default class Article extends React.Component {
         <BgImage url={fish} />
         <div className={styles.text}>
           <Header text={article.title} />
-          <span className={styles.date}>{article.date}6</span>
+          <span className={styles.date}>{article.date}</span>
           {article.ingredients.map(section => <List key={section.id} list={section.list} sectionHeader={section.sectionTitle} />)}
           <p>We used <TextLink text='this amazing wine'/> from systembolaget. It's a blend of chardonnay and sauvignon blanc.</p>
           {article.instructions.map(section => <p key={section.id}>{section.text}</p>)}
