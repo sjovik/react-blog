@@ -2,6 +2,7 @@ export default {
   "articles": [
     {
       "id": 1,
+      "date": "2016-04-24",
       "title": "Lemony pesto pasta",
       "ingredients": [
         {
