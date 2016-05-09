@@ -5,8 +5,10 @@ import classNames from 'classnames';
 
 import NavLink from './navLink';
 import SubMenu from './subMenu';
+import BgImage from '../bgImage';
 import {menu, submenuCategories} from './statics';
 
+// import sardinepattern from '../../src/img/sardine-pattern.jpg';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -43,6 +45,15 @@ export default class Menu extends React.Component {
       [`${styles.area}`]: true,
       [`${styles.areaHidden}`]: !this.props.open
     });
+    // const bgimage = {
+    //   width: '700px',
+    //   position: 'absolute',
+    //   top: '-20px',
+    //   left: '-20px',
+    //   height: '500px',
+    //   zIndex: '-1'
+    // };
+    // <BgImage url={sardinepattern} dim={{ height: '450px' }} background={true} />
 
     return (
       <div className={areaClass}>

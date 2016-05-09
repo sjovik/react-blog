@@ -16,7 +16,7 @@ export default class Article extends React.Component {
 
     return (
       <div className={styles.article}>
-        <BgImage url={fish} />
+        <BgImage url={fish} dim={{ height: '400px' }} />
         <div className={styles.text}>
           <Header text={article.title} />
           <span className={styles.date}>{article.date}</span>

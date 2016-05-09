@@ -1,7 +1,6 @@
 import styles from './navLink.styl';
 
 import React from 'react';
-// import classNames from 'classnames';
 
 const NavLink = ({onClick, text, url, submenu}) => {
   return (
