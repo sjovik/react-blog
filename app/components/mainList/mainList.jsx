@@ -2,8 +2,6 @@ import styles from './mainList.styl';
 
 import React from 'react';
 
-import BgImage from '../bgImage';
-
 // TODO: Replace with real data.
 import data from '../../src/data.js';
 
