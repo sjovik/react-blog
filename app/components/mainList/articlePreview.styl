@@ -1,10 +1,32 @@
 @import '../../frame/theme'
 
-
+short = 60%
+long = 75%
 
 .container
-  width 500px
+  width 700px
+  height 400px
+  position relative
+  
+.textContainer
+  height 100%
+  vertical-align top
 
-.imageContainer
-  height 200px
-  width 200px
+.imageContainer1
+.imageContainer2
+.imageContainer3
+  position absolute
+  top 0
+  right 0
+  height 100%
+
+.imageContainer1
+  width long
+  left 0
+  right auto
+
+.imageContainer2
+  width short
+  
+.imageContainer3
+  width long
