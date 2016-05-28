@@ -5,31 +5,44 @@ long = 75%
 text = 40%
 
 .container
-  width 700px
-  height 400px
   position relative
   
+  @media (min-width: media-width-small)
+    height 450px
+
 // # textContainer
 .textContainer
-  width text
-  position absolute
-  right 0
-  bottom 0
+  position relative
   text-align right
+
+  @media (min-width: media-width-small)
+    width text
+    position absolute
+    right 0
+    bottom 0
 
 .right .textContainer
 .rightStanding .textContainer
   left 0
   right auto
   text-align left
+  
+.rightStanding .textContainer
+  @media (min-width: media-width-small)
+    left 10%
 
 // # imageContainer
 .imageContainer
-  position absolute
-  width long
+  position relative
+  width 100%
+  height 400px
   top 0
   left 0
-  height 100%
+  
+  @media (min-width: media-width-small)
+    position absolute
+    height 450px
+    width long
 
 .right .imageContainer
 .rightStanding .imageContainer
@@ -37,5 +50,5 @@ text = 40%
   left auto
 
 .rightStanding .imageContainer
-  width short
-
+  @media (min-width: media-width-small)
+    width short

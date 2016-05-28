@@ -8,8 +8,6 @@ import PreviewText from './articlePreviewText';
 
 export default class ArticlePreview extends React.Component {
   render() {
-    // const typeClass = this.props.type;
-
     const typeClass = classNames({
       [`${styles.container}`]: true,
       [`${styles.rightStanding}`]: (this.props.type === 2),

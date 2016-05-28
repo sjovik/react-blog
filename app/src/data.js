@@ -4,7 +4,7 @@ export default {
       "id": 1,
       "date": "2016-04-24",
       "title": "Lemony pesto pasta with lemons and peso and pasta",
-      "titleImage": "../../src/img/summer_roll.png",
+      "titleImage": "../../src/img/life.jpg",
       "ingredients": [
         {
           "id": 1,
@@ -250,7 +250,7 @@ export default {
       "id": 4,
       "date": "2016-04-24",
       "title": "Lemony pesto pasta with lemons and peso and pasta",
-      "titleImage": "../../src/img/summer_roll.png",
+      "titleImage": "../../src/img/life.jpg",
       "ingredients": [
         {
           "id": 1,
