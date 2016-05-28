@@ -2,31 +2,39 @@
 
 short = 60%
 long = 75%
+text = 40%
 
 .container
   width 700px
   height 400px
   position relative
   
+// # textContainer
 .textContainer
-  height 100%
-  vertical-align top
-
-.imageContainer1
-.imageContainer2
-.imageContainer3
+  width text
   position absolute
-  top 0
   right 0
-  height 100%
+  text-align right
 
-.imageContainer1
-  width long
+.right .textContainer
+.rightStanding .textContainer
   left 0
   right auto
+  text-align left
 
-.imageContainer2
-  width short
-  
-.imageContainer3
+// # imageContainer
+.imageContainer
+  position absolute
   width long
+  top 0
+  left 0
+  height 100%
+
+.right .imageContainer
+.rightStanding .imageContainer
+  right 0
+  left auto
+
+.rightStanding .imageContainer
+  width short
+

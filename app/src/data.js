@@ -3,7 +3,7 @@ export default {
     {
       "id": 1,
       "date": "2016-04-24",
-      "title": "Lemony pesto pasta",
+      "title": "Lemony pesto pasta with lemons and peso and pasta",
       "titleImage": "../../src/img/summer_roll.png",
       "ingredients": [
         {
@@ -85,7 +85,7 @@ export default {
     {
       "id": 2,
       "date": "2016-04-24",
-      "title": "Haloumi Summery rolls",
+      "title": "Vietnamese Summery rolls with halloumi and avocado",
       "titleImage": "../../src/img/sardine-pattern.jpg",
       "ingredients": [
         {
@@ -167,7 +167,7 @@ export default {
     {
       "id": 3,
       "date": "2016-05-31",
-      "title": "Lemony pesto pasta",
+      "title": "Lemony pesto pasta with lemons and peso and pasta",
       "titleImage": "../../src/img/fish.png",
       "ingredients": [
         {
@@ -249,7 +249,7 @@ export default {
     {
       "id": 4,
       "date": "2016-04-24",
-      "title": "Lemony pesto pasta",
+      "title": "Lemony pesto pasta with lemons and peso and pasta",
       "titleImage": "../../src/img/summer_roll.png",
       "ingredients": [
         {
@@ -331,7 +331,7 @@ export default {
     {
       "id": 5,
       "date": "2016-04-24",
-      "title": "Haloumi Summery rolls",
+      "title": "Vietnamese Summery rolls with halloumi and avocado",
       "titleImage": "../../src/img/sardine-pattern.jpg",
       "ingredients": [
         {
@@ -413,7 +413,7 @@ export default {
     {
       "id": 6,
       "date": "2016-05-31",
-      "title": "Lemony pesto pasta",
+      "title": "Lemony pesto pasta with lemons and peso and pasta",
       "titleImage": "../../src/img/fish.png",
       "ingredients": [
         {

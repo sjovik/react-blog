@@ -7,7 +7,7 @@ export default class ArticlePreviewText extends React.Component {
 
     return (
       <div className={styles.container}>
-        {this.props.article.title}
+        <h2 className={styles.h2}>{this.props.article.title}</h2>
       </div>
     );
   }
