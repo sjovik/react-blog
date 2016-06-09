@@ -5,10 +5,7 @@ import classNames from 'classnames';
 
 import NavLink from './navLink';
 import SubMenu from './subMenu';
-import BgImage from '../bgImage';
 import {menu, submenuCategories} from './statics';
-
-// import sardinepattern from '../../src/img/sardine-pattern.jpg';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -36,7 +33,6 @@ export default class Menu extends React.Component {
 
     if (submenu) return this.setState({submenu: text});
 
-    // TODO: Links to site sections, routes?
     this.props.close(); 
   }
 
@@ -45,22 +41,13 @@ export default class Menu extends React.Component {
       [`${styles.area}`]: true,
       [`${styles.areaHidden}`]: !this.props.open
     });
-    // const bgimage = {
-    //   width: '700px',
-    //   position: 'absolute',
-    //   top: '-20px',
-    //   left: '-20px',
-    //   height: '500px',
-    //   zIndex: '-1'
-    // };
-    // <BgImage url={sardinepattern} dim={{ height: '450px' }} background={true} />
 
     return (
       <div className={areaClass}>
         <nav>
           <ul className={styles.navList}>
             {menu.map((item, index) => {
-              return <NavLink submenu={item.submenu} key={index} onClick={this.onClick} text={item.text} />;
+              return <NavLink link={item} key={index} onClick={this.onClick} />;
             })}
           </ul>
           {this.state.submenu ? this.renderSubmenu() : null}

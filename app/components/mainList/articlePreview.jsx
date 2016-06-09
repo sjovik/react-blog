@@ -2,6 +2,7 @@ import styles from './articlePreview.styl';
 
 import React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router';
 
 import BgImage from '../bgImage';
 import PreviewText from './articlePreviewText';
@@ -16,12 +17,14 @@ export default class ArticlePreview extends React.Component {
 
     return (
       <div className={typeClass}>
-        <div className={styles.imageContainer}>
-          <BgImage url={this.props.article.titleImage} background={true} />
-        </div>
-        <div className={styles.textContainer}> 
-          <PreviewText article={this.props.article} />
-        </div>
+        <Link to="/article">
+          <div className={styles.imageContainer}>
+            <BgImage url={this.props.article.titleImage} background={true} />
+          </div>
+          <div className={styles.textContainer}> 
+            <PreviewText article={this.props.article} />
+          </div>
+        </Link>
       </div>
     );
   }

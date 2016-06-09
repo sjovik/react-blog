@@ -1,27 +1,33 @@
 export const menu = [
   {
-    text: 'Home'
+    text: 'Home',
+    url: '/'
   }, 
   { 
     text: 'Categories',
     submenu: true
   },
   {
-    text: 'Contact'
+    text: 'Contact',
+    url: '/contact'
   },
   {
-    text: 'Shop'
+    text: 'Shop',
+    url: '/shop'
   } 
 ];
 
 export const submenuCategories = [
   {
-    text: 'Recipes'
+    text: 'Recipes',
+    url: '/recipes'
   },
   {
-    text: 'Wine'
+    text: 'Wine',
+    url: '/wine'
   },
   {
-    text: 'Playlists'
+    text: 'Playlists',
+    url: '/playlists'
   } 
 ];

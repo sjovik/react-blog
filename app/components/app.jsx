@@ -2,16 +2,13 @@ import './../frame/index.styl';
 import styles from './app.styl';
 
 import React from 'react';
+import { Link } from 'react-router';
 // import AltContainer from 'alt-container';
 
 import Logo from './logo';
 import Footer from './footer';
 import MenuButton from './menu/menuButton';
 import Menu from './menu/menu';
-
-// TODO: Here for testing out different pages. Learn about route?
-import MainList from './mainList/mainList';
-import Article from './article/article';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -38,9 +35,9 @@ export default class App extends React.Component {
       <div>
         <div className={styles.bodyWrapper}>
           <div className={styles.header}>
-            <Logo centered={true} />
+            <Link to="/"><Logo centered={true} /></Link>
           </div>
-          <MainList />
+          {this.props.children}
           <Footer></Footer>
           <Menu close={this.closeMenu} open={this.state.menu} />
           <MenuButton open={this.state.menu} onClick={this.toggleMenu} />
@@ -49,4 +46,5 @@ export default class App extends React.Component {
     );
   }
 }
-          // <Article />
+
+App.propTypes = { children: React.PropTypes.node };
