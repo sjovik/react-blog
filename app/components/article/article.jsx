@@ -11,8 +11,7 @@ import data from '../../src/data.js';
 
 export default class Article extends React.Component {
   render() {
-    const id = parseInt(this.props.params.articleId);
-    const article = data.articles.find(article => article.id === id);
+    const article = this.fetchArticle(parseInt(this.props.params.articleId));
 
     return (
       <div className={styles.article}>
@@ -27,8 +26,15 @@ export default class Article extends React.Component {
       </div>
     );
   }
+
+  /** 
+   * Get article by id. Replace data with database connection.
+   */
+  fetchArticle(id) {
+    return data.articles.find(article => article.id === id);
+  }
 }
 
 Article.propTypes = {
-  params: React.PropTypes.object.isRequired
+  params: React.PropTypes.object
 };

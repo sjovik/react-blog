@@ -17,23 +17,21 @@ export default class Menu extends React.Component {
     };
 
     this.openSubmenu = this.openSubmenu.bind(this);
+    this.closeSubmenu = this.closeSubmenu.bind(this);
   }
 
-  openSubmenu(text, submenu) {
-    // Toggle for double click, mostly for non-middle-screen sizes
-    if (submenu && this.state.submenu === text) text = 'back';
+  openSubmenu(text) {
+    if (this.state.submenu === text) return this.closeSubmenu();
 
-    if (text === 'back') {
-      this.setState({ submenuAnimating: true });
+    this.setState({submenu: text});
+  }
 
-      return setTimeout(() => {
-        this.setState({submenu: false, submenuAnimating: false}); 
-      }, 400);
-    }
+  closeSubmenu() {
+    this.setState({ submenuAnimating: true });
 
-    if (submenu) return this.setState({submenu: text});
-
-    this.props.close(); 
+    setTimeout(() => {
+      this.setState({submenu: false, submenuAnimating: false}); 
+    }, 400);
   }
 
   render() {
@@ -60,7 +58,8 @@ export default class Menu extends React.Component {
     return <SubMenu title={this.state.submenu} 
                     menu={submenuCategories} 
                     animating={this.state.submenuAnimating} 
-                    onClick={this.openSubmenu} 
+                    openSubmenu={this.openSubmenu}
+                    closeSubmenu={this.closeSubmenu} 
                     close={this.props.close} />;
   }
 }
