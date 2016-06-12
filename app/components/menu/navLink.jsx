@@ -3,19 +3,34 @@ import styles from './navLink.styl';
 import React from 'react';
 import { Link } from 'react-router';
 
-const NavLink = ({onClick, link}) => {
-  // TODO: change this so it renders link inside if it's not a submenu link, and a if it is, calls different methods (like opensubmenu()).
-      // <Link className={styles.navLink} data-submenu={link.submenu} onClick={onClick.bind(null, link.text, link.submenu)} to={link.url}>{link.text}</Link>
-  return (
-    <li className={styles.navItem}>
-      {link.text}
-    </li>
-  );
-};
+export default class NavLink extends React.Component {
+  render() {
+    return (
+      <li className={styles.navItem}>
+        {this.props.link.submenu ? this.renderSubLink() : this.renderLink()}
+      </li>
+    );
+  }
+
+  renderLink() {
+    const { link, close } = this.props;
+
+    return (
+      <Link className={styles.navLink} to={link.url} onClick={close}>{link.text}</Link>
+    );
+  }
+
+  renderSubLink() {
+    const { link, openSubmenu } = this.props;
+
+    return (
+      <a className={styles.navLink} data-submenu={link.submenu} onClick={openSubmenu.bind(null, link.text, link.submenu)}>{link.text}</a>
+    );
+  }
+}
 
 NavLink.propTypes = { 
   link: React.PropTypes.object.isRequired,
-  onClick: React.PropTypes.func.isRequired
+  close: React.PropTypes.func.isRequired,
+  openSubmenu: React.PropTypes.func
 };
-
-export default NavLink;

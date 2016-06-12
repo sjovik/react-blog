@@ -14,15 +14,17 @@ export default class ArticlePreview extends React.Component {
       [`${styles.rightStanding}`]: (this.props.type === 2),
       [`${styles.right}`]: (this.props.type === 3)
     });
+    const { article } = this.props;
+    const url = `/article/${article.id}`;
 
     return (
       <div className={typeClass}>
-        <Link to="/article">
+        <Link to={url}>
           <div className={styles.imageContainer}>
-            <BgImage url={this.props.article.titleImage} background={true} />
+            <BgImage url={article.titleImage} background={true} />
           </div>
           <div className={styles.textContainer}> 
-            <PreviewText article={this.props.article} />
+            <PreviewText article={article} />
           </div>
         </Link>
       </div>

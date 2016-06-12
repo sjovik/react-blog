@@ -6,11 +6,12 @@ import App from './components/app.jsx';
 import MainList from './components/mainList/mainList';
 import Article from './components/article/article';
 
+// TODO: Fix back-button not scrolling to top but keeping scrollstate from before (in main-list at least).
 render((
-  <Router history={hashHistory}>
+  <Router history={hashHistory} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={App}>
       <IndexRoute component={MainList}/>
-      <Route path="/article" component={Article}/>
+      <Route path="/article/:articleId" component={Article}/>
     </Route>
   </Router>
 ), document.getElementById('app'));

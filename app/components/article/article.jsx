@@ -7,16 +7,16 @@ import List from './list';
 import TextLink from '../textLink';
 import BgImage from '../bgImage';
 
-import fish from '../../src/img/fish.png';
 import data from '../../src/data.js';
 
 export default class Article extends React.Component {
   render() {
-    const article = data.articles[0];
+    const id = parseInt(this.props.params.articleId);
+    const article = data.articles.find(article => article.id === id);
 
     return (
       <div className={styles.article}>
-        <BgImage url={fish} dim={{ height: '400px' }} />
+        <BgImage url={article.titleImage} dim={{ height: '400px' }} />
         <div className={styles.text}>
           <Header text={article.title} />
           <span className={styles.date}>{article.date}</span>
@@ -28,3 +28,7 @@ export default class Article extends React.Component {
     );
   }
 }
+
+Article.propTypes = {
+  params: React.PropTypes.object.isRequired
+};

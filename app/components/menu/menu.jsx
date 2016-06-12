@@ -16,11 +16,11 @@ export default class Menu extends React.Component {
       submenuAnimating: false
     };
 
-    this.onClick = this.onClick.bind(this);
+    this.openSubmenu = this.openSubmenu.bind(this);
   }
 
-  onClick(text, submenu) {
-    // Toggle for double click, mostly for middle screen sizes
+  openSubmenu(text, submenu) {
+    // Toggle for double click, mostly for non-middle-screen sizes
     if (submenu && this.state.submenu === text) text = 'back';
 
     if (text === 'back') {
@@ -47,7 +47,7 @@ export default class Menu extends React.Component {
         <nav>
           <ul className={styles.navList}>
             {menu.map((item, index) => {
-              return <NavLink link={item} key={index} onClick={this.onClick} />;
+              return <NavLink link={item} key={index} openSubmenu={this.openSubmenu} close={this.props.close} />;
             })}
           </ul>
           {this.state.submenu ? this.renderSubmenu() : null}
@@ -57,7 +57,11 @@ export default class Menu extends React.Component {
   }
 
   renderSubmenu() {
-    return <SubMenu title={this.state.submenu} menu={submenuCategories} animating={this.state.submenuAnimating} onClick={this.onClick} />;
+    return <SubMenu title={this.state.submenu} 
+                    menu={submenuCategories} 
+                    animating={this.state.submenuAnimating} 
+                    onClick={this.openSubmenu} 
+                    close={this.props.close} />;
   }
 }
 
