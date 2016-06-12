@@ -14,9 +14,10 @@ export default class NavLink extends React.Component {
 
   renderLink() {
     const { link, close } = this.props;
+    const activeStyle = { color: '#fff' };
 
     return (
-      <Link className={styles.navLink} to={link.url} onClick={close}>{link.text}</Link>
+      <Link activeStyle={activeStyle} onlyActiveOnIndex className={styles.navLink} to={link.url} onClick={close}>{link.text}</Link>
     );
   }
 
