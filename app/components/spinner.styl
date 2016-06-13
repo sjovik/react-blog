@@ -1,0 +1,13 @@
+// # Spinner credits: http://tobiasahlin.com/spinkit/
+@import '../frame/theme'
+
+.spinner
+  height 80px
+  width 80px
+  animation sk-rotateplane 1.2s infinite ease-in-out;
+
+@keyframes sk-rotateplane {
+  0% { transform: perspective(120px) }
+  50% { transform: perspective(120px) rotateY(180deg) }
+  100% { transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
