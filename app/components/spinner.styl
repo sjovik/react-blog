@@ -4,7 +4,10 @@
 .spinner
   height 80px
   width 80px
-  animation sk-rotateplane 1.2s infinite ease-in-out;
+  
+  &[data-spinning=true]
+    animation sk-rotateplane 1.2s infinite ease-in-out;
+    
 
 @keyframes sk-rotateplane {
   0% { transform: perspective(120px) }
