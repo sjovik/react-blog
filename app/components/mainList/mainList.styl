@@ -1,5 +1,7 @@
 @import '../../frame/theme'
 
+loaderSize = 80px
+
 .container
   max-width 100%
   margin auto
@@ -15,5 +17,13 @@
   list-style-type none
 
 .loadMoreContainer
-  display flex
-  justify-content center
+  position relative
+  height loaderSize
+  
+.loadMoreIcon
+  width loaderSize
+  height loaderSize
+  position absolute
+  margin auto
+  left 0
+  right 0

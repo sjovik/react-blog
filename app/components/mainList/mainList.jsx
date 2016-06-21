@@ -2,8 +2,11 @@ import styles from './mainList.styl';
 
 import React from 'react';
 
+import store from './../../store/store';
+import { spinSpinner, stopSpinner } from './../../actions/actions';
+
 import ArticlePreview from './articlePreview';
-import LoadMoreButton from './loadMoreButton';
+import RoundButton from './../roundButton';
 import Spinner from './../spinner';
 import Plus from './../icons/plus';
 
@@ -15,36 +18,49 @@ export default class MainList extends React.Component {
     super(props);
 
     this.state = {
-      articles: data.articles
+      articles: data.articles,
+      spinner: false
     };
-
+    
     this.loadMore = this.loadMore.bind(this);
+  }
+
+  componentWillMount() {
+    store.subscribe(() => {
+      this.setState({ spinner: store.getState().spinner });
+    });
   }
 
   render() {
     return (
       <div className={styles.container}>
         <ul className={styles.list}>
-          {
-            this.state.articles.map((item, index) => {
-              return <li className={styles.item} key={index}><ArticlePreview article={item} type={index % 3 + 1} /></li>; 
-            })
-          }
+          { this.state.articles.map((item, index) => {
+            return (
+              <li className={styles.item} key={index}>
+                <ArticlePreview article={item} type={index % 3 + 1} />
+              </li>); 
+          }) }
         </ul>
         <div className={styles.loadMoreContainer}>
-          {this.state.loadingArticles ? <Spinner><Plus /></Spinner> : <LoadMoreButton loadMore={this.loadMore} />}
+          <div className={styles.loadMoreIcon}>
+            <Spinner spinning={this.state.spinner}><Plus /></Spinner>
+          </div>
+          <div className={styles.loadMoreIcon}>
+            <RoundButton visible={!this.state.spinner} action={this.loadMore}><Plus /></RoundButton>
+          </div>
         </div>
       </div>
     );
   }
 
   loadMore() {
-    this.setState({loadingArticles: true});
+    store.dispatch(spinSpinner());
 
     // REMOVE: Ajax simulation.
     setTimeout(() => {
+      store.dispatch(stopSpinner());
       this.setState({
-        loadingArticles: false,
         articles: this.state.articles.concat(data.articles)
       });
     }, 2000);

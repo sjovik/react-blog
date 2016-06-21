@@ -9,12 +9,12 @@ import PreviewText from './articlePreviewText';
 
 export default class ArticlePreview extends React.Component {
   render() {
+    const { article, type } = this.props;
     const typeClass = classNames({
       [`${styles.container}`]: true,
-      [`${styles.rightStanding}`]: (this.props.type === 2),
-      [`${styles.right}`]: (this.props.type === 3)
+      [`${styles.rightStanding}`]: (type === 2),
+      [`${styles.right}`]: (type === 3)
     });
-    const { article } = this.props;
     const url = `/article/${article.id}`;
 
     return (
@@ -37,8 +37,7 @@ ArticlePreview.propTypes = {
   type: function(props, propName, componentName) {
     if (!/[1-3]/.test(props[propName])) {
       return new Error(
-        'Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Needs to be a number between 1 and 3.'
+        `Invalid prop ${propName} supplied to ${componentName}. Needs to be a number between 1 and 3.`
       );
     }
   }

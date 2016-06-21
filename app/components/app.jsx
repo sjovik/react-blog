@@ -3,7 +3,6 @@ import styles from './app.styl';
 
 import React from 'react';
 import { Link } from 'react-router';
-// import AltContainer from 'alt-container';
 
 import Logo from './logo';
 import Footer from './footer';
