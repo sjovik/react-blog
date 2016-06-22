@@ -3,11 +3,14 @@ import { toggleSpinner, fetchArticles } from '../actions/actions';
 
 import SpinningButton from '../components/spinningButton';
 
-const loadMore = (cb) => {
-  // REMOVE: Ajax simulation.
-  setTimeout(() => {
-    cb();
-  }, 2000);
+const loadMore = () => {
+  const promise = new Promise((res) => {
+    setTimeout(() => {
+      res();
+    }, 2000);
+  });
+
+  return promise;
 };
 
 const mapStateToProps = (state) => {
@@ -21,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     action: () => {
       dispatch(toggleSpinner(true));
 
-      loadMore(() => {
+      loadMore().then(() => {
         dispatch(fetchArticles());
         dispatch(toggleSpinner(false));
       });
