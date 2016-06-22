@@ -9,7 +9,7 @@ const Spinner = ({spinning, children}) => (
 );
 
 Spinner.propTypes = {
-  spinning: React.PropTypes.bool.isRequired,
+  spinning: React.PropTypes.bool,
   children: React.PropTypes.node
 };
 

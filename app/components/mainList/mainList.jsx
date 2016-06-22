@@ -2,13 +2,8 @@ import styles from './mainList.styl';
 
 import React from 'react';
 
-import store from './../../store/store';
-import { spinSpinner, stopSpinner } from './../../actions/actions';
-
 import ArticlePreview from './articlePreview';
-import RoundButton from './../roundButton';
-import Spinner from './../spinner';
-import Plus from './../icons/plus';
+import LoadMore from '../../containers/loadMore';
 
 // TODO: Replace with real data.
 import data from '../../src/data.js';
@@ -18,17 +13,8 @@ export default class MainList extends React.Component {
     super(props);
 
     this.state = {
-      articles: data.articles,
-      spinner: false
+      articles: data.articles
     };
-    
-    this.loadMore = this.loadMore.bind(this);
-  }
-
-  componentWillMount() {
-    store.subscribe(() => {
-      this.setState({ spinner: store.getState().spinner });
-    });
   }
 
   render() {
@@ -42,27 +28,8 @@ export default class MainList extends React.Component {
               </li>); 
           }) }
         </ul>
-        <div className={styles.loadMoreContainer}>
-          <div className={styles.loadMoreIcon}>
-            <Spinner spinning={this.state.spinner}><Plus /></Spinner>
-          </div>
-          <div className={styles.loadMoreIcon}>
-            <RoundButton visible={!this.state.spinner} action={this.loadMore}><Plus /></RoundButton>
-          </div>
-        </div>
+        <LoadMore />
       </div>
     );
-  }
-
-  loadMore() {
-    store.dispatch(spinSpinner());
-
-    // REMOVE: Ajax simulation.
-    setTimeout(() => {
-      store.dispatch(stopSpinner());
-      this.setState({
-        articles: this.state.articles.concat(data.articles)
-      });
-    }, 2000);
   }
 }
