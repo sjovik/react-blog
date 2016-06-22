@@ -1,9 +1,9 @@
 import { TOGGLE_SPINNER } from './../actions/actions';
 
-export const spinnerReducer = (state = {}, action) => {
+export const spinner = (state = false, action) => {
   switch (action.type) {
     case TOGGLE_SPINNER:
-      return { ...state, spinner: action.active };
+      return action.active;
     default:
       return state;
   }

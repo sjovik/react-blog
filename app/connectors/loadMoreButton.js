@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleSpinner } from '../actions/actions';
+import { toggleSpinner, fetchArticles } from '../actions/actions';
 
 import SpinningButton from '../components/spinningButton';
 
@@ -12,7 +12,7 @@ const loadMore = (cb) => {
 
 const mapStateToProps = (state) => {
   return {
-    spinning: state.spinner 
+    spinning: state.spinner
   };
 };
 
@@ -22,15 +22,16 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleSpinner(true));
 
       loadMore(() => {
+        dispatch(fetchArticles());
         dispatch(toggleSpinner(false));
       });
     }
   };
 };
 
-const LoadMore = connect(
+const LoadMoreButton = connect(
   mapStateToProps, 
   mapDispatchToProps
 )(SpinningButton);
 
-export default LoadMore;
+export default LoadMoreButton;

@@ -1,7 +1,8 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-import { spinnerReducer } from './../reducers/spinnerReducer.js';
+import { spinner } from '../reducers/spinnerReducer.js';
+import { articles } from '../reducers/articlesReducer.js';
 
-const store = createStore(spinnerReducer);
+const store = createStore(combineReducers({spinner, articles}));
 
 export default store;
