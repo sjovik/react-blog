@@ -1,6 +1,6 @@
 import styles from './navLink.styl';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class NavLink extends React.Component {
@@ -17,21 +17,31 @@ export default class NavLink extends React.Component {
     const activeStyle = { color: '#fff' };
 
     return (
-      <Link activeStyle={activeStyle} onlyActiveOnIndex className={styles.navLink} to={link.url} onClick={close}>{link.text}</Link>
+      <Link activeStyle={activeStyle}
+        onlyActiveOnIndex
+        className={styles.navLink}
+        to={link.url}
+        onClick={close}>
+        {link.text}
+      </Link>
     );
   }
 
   renderSubLink() {
-    const { link, openSubmenu } = this.props;
+    const { link, toggleSubMenu } = this.props;
 
     return (
-      <a className={styles.navLink} data-submenu={link.submenu} onClick={openSubmenu.bind(null, link.text, link.submenu)}>{link.text}</a>
+      <a className={styles.navLink}
+        data-submenu={!!link.submenu}
+        onClick={toggleSubMenu}>
+        {link.text}
+      </a>
     );
   }
 }
 
 NavLink.propTypes = { 
-  link: React.PropTypes.object.isRequired,
-  close: React.PropTypes.func.isRequired,
-  openSubmenu: React.PropTypes.func
+  toggleSubMenu: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
+  link: PropTypes.object.isRequired
 };

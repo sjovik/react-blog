@@ -5,7 +5,7 @@ export const menu = [
   }, 
   { 
     text: 'Categories',
-    submenu: true
+    submenu: 'categories'
   },
   {
     text: 'Contact',

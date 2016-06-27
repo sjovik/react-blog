@@ -2,25 +2,23 @@ import styles from './subMenu.styl';
 
 import React from 'react';
 
-import NavLink from './navLink';
+import MenuLink from '../../connectors/menuLink';
 
-const SubMenu = ({animating, menu, openSubmenu, closeSubmenu, close}) => (
-  <div className={styles.container} data-animating={animating}>
+const SubMenu = ({menu, isOpen, close}) => (
+  <div className={styles.container} data-open={isOpen}>
     <ul className={styles.navList}>
-      <li className={styles.header} onClick={closeSubmenu} >{'< back'}</li>
+      <li className={styles.header} onClick={close} >{'< back'}</li>
       {menu.map((item, index) => {
-        return <NavLink link={item} key={index} openSubmenu={openSubmenu} close={close} />;
+        return <MenuLink link={item} key={index} />;
       })}
     </ul>
   </div>
 );
 
 SubMenu.propTypes = { 
-  openSubmenu: React.PropTypes.func.isRequired,
-  closeSubmenu: React.PropTypes.func.isRequired,
-  close: React.PropTypes.func.isRequired,
-  menu: React.PropTypes.array,
-  animating: React.PropTypes.bool
+  menu: React.PropTypes.array.isRequired,
+  isOpen: React.PropTypes.bool.isRequired,
+  close: React.PropTypes.func.isRequired
 };
 
 export default SubMenu;
