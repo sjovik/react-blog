@@ -1,26 +1,13 @@
 import { connect } from 'react-redux';
-import { closeMenu } from '../actions/actions';
 
 import Menu from '../components/menu/menu';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
-    isOpen: state.menu === ownProps.menu,
-    menu: ownProps.menu
+    isOpen: state.menu.open
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    close: () => {
-      dispatch(closeSubMenu(ownProps.subMenu))
-    }
-  };
-};
-
-const OpenMenu = connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(Menu);
+const OpenMenu = connect(mapStateToProps)(Menu);
 
 export default OpenMenu;

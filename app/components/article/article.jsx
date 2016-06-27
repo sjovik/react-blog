@@ -1,6 +1,6 @@
 import styles from './article.styl';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Header from './header';
 import List from './list';
@@ -9,32 +9,32 @@ import BgImage from '../bgImage';
 
 import data from '../../src/data.js';
 
-export default class Article extends React.Component {
-  render() {
-    const article = this.fetchArticle(parseInt(this.props.params.articleId));
+/** 
+ * Get article by id. Replace data with database connection.
+ */
+const fetchArticle = (id) => {
+  return data.articles.find(article => article.id === id);
+};
 
-    return (
-      <div className={styles.article}>
-        <BgImage url={article.titleImage} dim={{ height: '400px' }} />
-        <div className={styles.text}>
-          <Header text={article.title} />
-          <span className={styles.date}>{article.date}</span>
-          {article.ingredients.map(section => <List key={section.id} list={section.list} sectionHeader={section.sectionTitle} />)}
-          <p>We used <TextLink text='this amazing wine'/> from systembolaget. It's a blend of chardonnay and sauvignon blanc.</p>
-          {article.instructions.map(section => <p key={section.id}>{section.text}</p>)}
-        </div>
+const Article = ({ params }) => {
+  const article = fetchArticle(parseInt(params.articleId));
+
+  return (
+    <div className={styles.article}>
+      <BgImage url={article.titleImage} dim={{ height: '400px' }} />
+      <div className={styles.text}>
+        <Header text={article.title} />
+        <span className={styles.date}>{article.date}</span>
+        {article.ingredients.map(section => <List key={section.id} list={section.list} sectionHeader={section.sectionTitle} />)}
+        <p>We used <TextLink text='this amazing wine'/> from systembolaget. It's a blend of chardonnay and sauvignon blanc.</p>
+        {article.instructions.map(section => <p key={section.id}>{section.text}</p>)}
       </div>
-    );
-  }
-
-  /** 
-   * Get article by id. Replace data with database connection.
-   */
-  fetchArticle(id) {
-    return data.articles.find(article => article.id === id);
-  }
-}
+    </div>
+  );
+};
 
 Article.propTypes = {
-  params: React.PropTypes.object
+  params: PropTypes.object.isRequired
 };
+
+export default Article;

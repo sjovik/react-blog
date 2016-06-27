@@ -13,14 +13,7 @@ const ArticlePreviewText = ({article}) => (
 );
 
 ArticlePreviewText.propTypes = { 
-  article: React.PropTypes.object
-};
-
-ArticlePreviewText.defaultProps = {
-  article: {
-    title: '',
-    date: ''
-  } 
+  article: React.PropTypes.object.isRequired
 };
 
 export default ArticlePreviewText;

@@ -3,17 +3,8 @@ import styles from './navLink.styl';
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-export default class NavLink extends React.Component {
-  render() {
-    return (
-      <li className={styles.navItem}>
-        {this.props.link.submenu ? this.renderSubLink() : this.renderLink()}
-      </li>
-    );
-  }
-
-  renderLink() {
-    const { link, close } = this.props;
+const NavLink = ({link, toggleSubMenu, close}) => {
+  const renderLink = () => {
     const activeStyle = { color: '#fff' };
 
     return (
@@ -25,11 +16,9 @@ export default class NavLink extends React.Component {
         {link.text}
       </Link>
     );
-  }
+  };
 
-  renderSubLink() {
-    const { link, toggleSubMenu } = this.props;
-
+  const renderSubLink = () => {
     return (
       <a className={styles.navLink}
         data-submenu={!!link.submenu}
@@ -37,11 +26,19 @@ export default class NavLink extends React.Component {
         {link.text}
       </a>
     );
-  }
-}
+  };
 
-NavLink.propTypes = { 
+  return (
+    <li className={styles.navItem}>
+      {link.submenu ? renderSubLink() : renderLink()}
+    </li>
+  );
+};
+
+NavLink.propTypes = {
   toggleSubMenu: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
   link: PropTypes.object.isRequired
 };
+
+export default NavLink;

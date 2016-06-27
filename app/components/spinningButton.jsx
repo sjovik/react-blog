@@ -18,7 +18,7 @@ const SpinningButton = ({spinning, action}) => (
 );
 
 SpinningButton.propTypes = {
-  spinning: PropTypes.bool,
+  spinning: PropTypes.bool.isRequired,
   action: PropTypes.func.isRequired
 };
 

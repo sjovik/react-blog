@@ -3,44 +3,33 @@ import styles from './menuButton.styl';
 import React from 'react';
 import classNames from 'classnames';
 
-export default class MenuButton extends React.Component {
-  render() {
-    return (
-      <div className={styles.button} onClick={this.props.onClick} >
-        <div className={styles.icon}>
-          {this.renderBars()}
-        </div>
-        {this.props.open ? null : this.renderTitle()}
-      </div>
-    );
-  }
-
-  renderTitle() {
+const MenuButton = ({isOpen, toggleMenu}) => {
+  const renderTitle = () => {
     return <div className={styles.text}>Menu</div>;
-  }
+  };
 
-  renderBars() {
-    const classes = classNames( {
-      [`${styles.bar}`]: true,
-      [`${styles.barHidden}`]: this.props.open
-    });
+  const classes = classNames( {
+    [`${styles.bar}`]: true,
+    [`${styles.barHidden}`]: isOpen
+  });
 
-    return (
-      <div className={styles.bars}>
-        <div className={classes}></div>
-        <div className={classes}></div>
-        <div className={classes}></div>
+  return (
+    <div className={styles.button} onClick={() => { toggleMenu(!isOpen); } } >
+      <div className={styles.icon}>
+        <div className={styles.bars}>
+          <div className={classes}></div>
+          <div className={classes}></div>
+          <div className={classes}></div>
+        </div>
       </div>
-    );
-  }
-}
+      { isOpen ? null : renderTitle() }
+    </div>
+  );
+};
 
 MenuButton.propTypes = {
-  open: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func.isRequired
+  isOpen: React.PropTypes.bool.isRequired,
+  toggleMenu: React.PropTypes.func.isRequired
 };
 
-MenuButton.defaultProps = {
-  open: false
-};
-
+export default MenuButton;
