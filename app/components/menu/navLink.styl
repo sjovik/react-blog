@@ -24,18 +24,23 @@
   font-size 23px
   position relative
   
+// REFACTOR: Not looking to good since the rotate is wobbly, also think about another way to handle this nesting and double selectoring.
+.subMenuLink
+  margin-right 20px
+  
+  &:after
+    font-size 17px
+    content ' >'
+    transition transform 0.4s trans-main
+  
+    @media(min-width: media-width-small) and (max-width: media-width-medium)
+      position absolute
+      right -18px
+      top 3px
+      transform rotate(90deg)
+  
   &[data-submenu=true]
-    margin-right 20px
-    
     &:after
-      font-size 17px
-      content ' >'
-    
       @media(min-width: media-width-small) and (max-width: media-width-medium)
-        position absolute
-        right -18px
-        top 3px
-        transform rotate(90deg)
-    
-  &[data-selected]:after
-    content '.'
+        transform rotate(270deg)
+        

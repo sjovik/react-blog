@@ -2,8 +2,9 @@ import styles from './navLink.styl';
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 
-const NavLink = ({link, toggleSubMenu, close}) => {
+const NavLink = ({link, toggleSubMenu, closeMenu, subMenuIsOpen}) => {
   const renderLink = () => {
     const activeStyle = { color: '#fff' };
 
@@ -12,16 +13,21 @@ const NavLink = ({link, toggleSubMenu, close}) => {
         onlyActiveOnIndex
         className={styles.navLink}
         to={link.url}
-        onClick={close}>
+        onClick={closeMenu}>
         {link.text}
       </Link>
     );
   };
 
   const renderSubLink = () => {
+    const classes = classNames( {
+      [`${styles.navLink}`]: true,
+      [`${styles.subMenuLink}`]: true
+    });
+
     return (
-      <a className={styles.navLink}
-        data-submenu={!!link.submenu}
+      <a className={classes}
+        data-submenu={subMenuIsOpen}
         onClick={toggleSubMenu}>
         {link.text}
       </a>
@@ -37,7 +43,8 @@ const NavLink = ({link, toggleSubMenu, close}) => {
 
 NavLink.propTypes = {
   toggleSubMenu: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
+  subMenuIsOpen: PropTypes.bool.isRequired,
+  closeMenu: PropTypes.func.isRequired,
   link: PropTypes.object.isRequired
 };
 

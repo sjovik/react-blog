@@ -3,9 +3,15 @@ import { toggleMenu, toggleSubMenu } from '../actions/actions';
 
 import NavLink from '../components/menu/navLink';
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    subMenuIsOpen: ((!ownProps.link.submenu) ? false : state.menu.subMenus.indexOf(ownProps.link.submenu) > -1)
+  };
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    close: () => {
+    closeMenu: () => {
       dispatch(toggleMenu(false));
     },
     toggleSubMenu: () => {
@@ -14,6 +20,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const MenuLink = connect(null, mapDispatchToProps)(NavLink);
+const MenuLink = connect(mapStateToProps, mapDispatchToProps)(NavLink);
 
 export default MenuLink;
