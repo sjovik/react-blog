@@ -23,14 +23,15 @@
   text-decoration none
   font-size 23px
   position relative
-  
-// REFACTOR: Not looking to good since the rotate is wobbly, also think about another way to handle this nesting and double selectoring.
+
 .subMenuLink
   margin-right 20px
+  backface-visibility hidden
   
   &:after
     font-size 17px
     content ' >'
+    padding-left 2px
     transition transform 0.4s trans-main
   
     @media(min-width: media-width-small) and (max-width: media-width-medium)

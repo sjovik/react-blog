@@ -6,7 +6,7 @@
     opacity 0
   }
   100% {
-    opacity area-opacity
+    opacity 1
   }
 }
 .area
@@ -17,10 +17,11 @@
   left 0
   height 'calc(100% - %s)' % size-header-height
   width 100%
-  animation fadein 0.4s trans-main
+  opacity 1
   overflow-y auto
   overflow-x hidden
   z-index z-menu
+  transition all 0.4s trans-main
   
   @media(min-width: media-width-small) and (max-width: media-width-medium)
     overflow visible
@@ -35,6 +36,8 @@
   
   &Hidden
     visibility hidden
+    opacity 0
     
     @media (min-width: media-width-medium)
       visibility visible
+      opacity 1
