@@ -8,6 +8,7 @@ import store from './store/store';
 import App from './components/app.jsx';
 import PopulatedMainList from './connectors/populatedMainList';
 import Article from './components/article/article';
+import Contact from './components/contact/contact';
 
 // TODO: Fix back-button not scrolling to top but keeping scrollstate from before (in main-list at least).
 render((
@@ -16,6 +17,7 @@ render((
       <Route path="/" component={App}>
         <IndexRoute component={PopulatedMainList}/>
         <Route path="/article/:articleId" component={Article}/>
+        <Route path="/contact" component={Contact}/>
       </Route>
     </Router>
   </Provider>
