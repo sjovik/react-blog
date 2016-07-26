@@ -1,0 +1,29 @@
+@import '../../frame/theme.styl'
+
+.label
+  position relative
+  display block
+  margin 10px 0
+
+.input
+  border none
+  outline none
+  background color-sub--light
+  width 100%
+  box-sizing border-box
+
+.input, .labelText
+  font-family font-body
+  font-size 26px
+  padding 30px
+  color color-colored-background-text
+
+.labelText
+  position absolute
+  top 50%
+  transform translateY(-50%)
+  transition all 0.4s trans-main
+  
+  &Dirty
+    font-size 18px
+    top 10px
