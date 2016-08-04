@@ -3,27 +3,30 @@
 .label
   position relative
   display block
-  margin 10px 0
+  margin 21px 0
 
 .input
   border none
   outline none
-  background color-sub--light
+  border-bottom 1px solid color-sub--light
   width 100%
   box-sizing border-box
+  font-family font-serif
+  color color-body-text
+  font-size 26px
 
 .input, .labelText
-  font-family font-body
-  font-size 26px
-  padding 30px
-  color color-colored-background-text
+  padding 12px 0
 
 .labelText
   position absolute
   top 50%
+  left 3px
+  font-size 20px
   transform translateY(-50%)
   transition all 0.4s trans-main
   
   &Dirty
-    font-size 18px
-    top 10px
+    font-size 15px
+    top 4px
+    left 0

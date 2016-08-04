@@ -1,6 +1,6 @@
 import styles from './input.styl';
 
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 import React, { PropTypes, Component } from 'react';
 
@@ -11,6 +11,10 @@ export default class Input extends Component {
     this.state = {
       dirty: false
     };
+  }
+
+  updateState(e) {
+    this.setState({ dirty: !!e.target.value });
   }
 
   render() {
@@ -25,15 +29,15 @@ export default class Input extends Component {
           <span className={labelTextClasses}>{this.props.label}</span>
           <input 
             className={styles.input} 
-            type='text' 
+            onInput={(e) => this.updateState(e)}
             onFocus={() => this.setState({ dirty: true })}
-            onBlur={(e) => (e.target.value) ? null : this.setState({ dirty: false })}
+            onBlur={(e) => this.updateState(e)}
           />
         </label>
       </div>
     );
   }
-};
+}
 
 Input.propTypes = {
   label: PropTypes.string.isRequired
