@@ -1,7 +1,6 @@
 import styles from './menu.styl';
 
 import React from 'react';
-import classNames from 'classnames';
 
 import MenuLink from '../../connectors/menuLink';
 import OpenSubMenu from '../../connectors/openSubMenu';
@@ -9,10 +8,7 @@ import {menu, submenuCategories} from './statics';
 
 // TODO: Move state back here from redux? Menu should handle it's own toggle state, not app dependant.
 const Menu = ({isOpen}) => {
-  const areaClasses = classNames({
-    [`${styles.area}`]: true,
-    [`${styles.areaHidden}`]: !isOpen
-  });
+  const areaClasses = `${styles.area} ${(!isOpen) ? styles.areaHidden : null}`;
 
   return (
     <div className={areaClasses}>

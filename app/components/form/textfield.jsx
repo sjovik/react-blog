@@ -1,7 +1,5 @@
 import styles from './textfield.styl';
 
-import classNames from 'classnames';
-
 import React, { PropTypes, Component } from 'react';
 
 export default class Textfield extends Component {
@@ -25,10 +23,7 @@ export default class Textfield extends Component {
   }
 
   render() {
-    const labelTextClasses = classNames({
-      [`${styles.labelText}`]: true,
-      [`${styles.labelTextDirty}`]: this.state.dirty
-    });
+    const labelTextClasses = `${styles.labelText} ${(this.state.dirty) ? styles.labelTextDirty : null}`;
 
     return (
       <div>
@@ -56,7 +51,7 @@ export default class Textfield extends Component {
       <textarea
         rows={1}
         ref={(c) => this._textarea = c}
-        className={classNames(`${styles.input}`, `${styles.textarea}`)} 
+        className={`${styles.input} ${styles.textarea}`}
         onInput={(e) => {
           this.updateState(e);
           this.updateHeight();

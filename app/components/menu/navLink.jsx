@@ -2,7 +2,6 @@ import styles from './navLink.styl';
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 
 const NavLink = ({link, toggleSubMenu, closeMenu, subMenuIsOpen}) => {
   const renderLink = () => {
@@ -20,13 +19,8 @@ const NavLink = ({link, toggleSubMenu, closeMenu, subMenuIsOpen}) => {
   };
 
   const renderSubLink = () => {
-    const classes = classNames( {
-      [`${styles.navLink}`]: true,
-      [`${styles.subMenuLink}`]: true
-    });
-
     return (
-      <a className={classes}
+      <a className={`${styles.navLink} ${styles.subMenuLink}`}
         data-submenu={subMenuIsOpen}
         onClick={toggleSubMenu}>
         {link.text}

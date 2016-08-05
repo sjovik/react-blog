@@ -11,7 +11,7 @@ const MainList = ({articles}) => (
       { articles.map((item, index) => {
         return (
           <li className={styles.item} key={index}>
-            <ArticlePreview article={item} type={index % 3 + 1} />
+            <ArticlePreview article={item} variation={index % 3 + 1} />
           </li> ); 
       }) }
     </ul>

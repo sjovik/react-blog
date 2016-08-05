@@ -1,17 +1,13 @@
 import styles from './menuButton.styl';
 
 import React from 'react';
-import classNames from 'classnames';
 
 const MenuButton = ({isOpen, toggleMenu}) => {
   const renderTitle = () => {
     return <div className={styles.text}>Menu</div>;
   };
 
-  const classes = classNames( {
-    [`${styles.bar}`]: true,
-    [`${styles.barHidden}`]: isOpen
-  });
+  const classes = `${styles.bar} ${(isOpen) ? styles.barHidden : null}`;
 
   return (
     <div className={styles.button} onClick={() => { toggleMenu(!isOpen); } } >
