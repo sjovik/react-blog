@@ -10,7 +10,9 @@ const Contact = () => {
     <div className={styles.contact}>
       <Header text='Send us a message' />
       <ContactForm />
-      <Header text='Follow' />
+      <div className={styles.follow}>
+        <Header text='Follow' />
+      </div>
     </div>
   );
 };
