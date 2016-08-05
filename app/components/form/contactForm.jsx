@@ -2,15 +2,15 @@ import styles from './contactForm.styl';
 
 import React from 'react';
 
-import Input from './input';
+import Textfield from './textfield';
 
 const ContactForm = () => {
   return (
     <div className={styles.form}>
       <form autoComplete="off">
-        <Input label="Name" />
-        <Input label="Email" />
-        <Input label="Message" />
+        <Textfield label="Name" />
+        <Textfield label="Email" />
+        <Textfield label="Message" area={true} />
       </form>
     </div>
   );

@@ -4,6 +4,7 @@
   position relative
   display block
   margin 21px 0
+  cursor text
 
 .input
   border none
@@ -20,13 +21,16 @@
 
 .labelText
   position absolute
-  top 50%
   left 3px
+  top 0
   font-size 20px
-  transform translateY(-50%)
   transition all 0.4s trans-main
+  line-height 1.7em
   
   &Dirty
     font-size 15px
-    top 4px
+    top -22px
     left 0
+
+.textarea
+  overflow hidden  
