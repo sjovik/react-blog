@@ -49,7 +49,6 @@ export default class Textfield extends Component {
   renderArea() {
     return (
       <textarea
-        rows={1}
         ref={(c) => this._textarea = c}
         className={`${styles.input} ${styles.textarea}`}
         onInput={(e) => {
