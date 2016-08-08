@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 
 import Logo from './logo';
 import Footer from './footer';
-import MainMenuButton from '../connectors/mainMenuButton';
 import OpenMenu from '../connectors/openMenu';
+import PushableContent from '../connectors/pushableContent';
 
 const App = ({children}) => {
   return (
@@ -16,10 +16,9 @@ const App = ({children}) => {
         <div className={styles.header}>
           <Link to="/"><Logo centered={true} /></Link>
         </div>
-        {children}
+        <PushableContent content={children} />
         <Footer></Footer>
         <OpenMenu />
-        <MainMenuButton />
       </div>
     </div>
   );

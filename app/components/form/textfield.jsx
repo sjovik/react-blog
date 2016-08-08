@@ -23,7 +23,7 @@ export default class Textfield extends Component {
   }
 
   render() {
-    const labelTextClasses = `${styles.labelText} ${(this.state.dirty) ? styles.labelTextDirty : null}`;
+    const labelTextClasses = `${styles.labelText} ${this.state.dirty ? styles.labelTextDirty : ''}`;
 
     return (
       <div>

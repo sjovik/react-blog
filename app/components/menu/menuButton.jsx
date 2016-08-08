@@ -7,15 +7,16 @@ const MenuButton = ({isOpen, toggleMenu}) => {
     return <div className={styles.text}>Menu</div>;
   };
 
-  const classes = `${styles.bar} ${(isOpen) ? styles.barHidden : null}`;
+  const barClasses = `${styles.bar} ${(isOpen) ? styles.barHidden : ''}`;
+  const buttonClasses = `${styles.button} ${(isOpen) ? styles.buttonPushed : ''}`;
 
   return (
-    <div className={styles.button} onClick={() => { toggleMenu(!isOpen); } } >
+    <div className={buttonClasses} onClick={() => { toggleMenu(!isOpen); } } >
       <div className={styles.icon}>
         <div className={styles.bars}>
-          <div className={classes}></div>
-          <div className={classes}></div>
-          <div className={classes}></div>
+          <div className={barClasses}></div>
+          <div className={barClasses}></div>
+          <div className={barClasses}></div>
         </div>
       </div>
       { isOpen ? null : renderTitle() }

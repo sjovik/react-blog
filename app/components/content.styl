@@ -1,0 +1,19 @@
+@import '../frame/theme.styl'
+
+.container
+  max-width 100%
+  overflow hidden
+  
+.contentWrapper
+  position relative
+  left 0
+  transition all 0.4s trans-main
+  
+  &Pushed
+    left 95%
+    
+    @media (min-width: media-width-small)
+      left width-menu
+    
+    @media (min-width: media-width-medium)
+      left 0

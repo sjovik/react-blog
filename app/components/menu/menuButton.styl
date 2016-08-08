@@ -12,11 +12,17 @@ button-side = 45px
   z-index z-menubutton
   
   @media (min-width: media-width-small)
-    left 50px
+    margin-left 50px
     top 50%
     
   @media (min-width: media-width-medium)
     display none
+    
+.buttonPushed
+  margin-left -5%
+  
+  @media (min-width: media-width-small)
+   margin-left -5px
   
 .icon
   position relative
@@ -39,7 +45,7 @@ button-side = 45px
       background color-sub--light
       height 1px
       width 100%
-      transition transform 400ms trans-main
+      transition transform 1200ms trans-main
       
       &:nth-child(1)
         transform rotate(45deg)

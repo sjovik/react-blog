@@ -1,43 +1,35 @@
 @import '../../frame/theme'
 @import './navList'
 
-@keyframes fadein {
-  0% {
-    opacity 0
-  }
-  100% {
-    opacity 1
-  }
-}
 .area
   box-sizing border-box
-  background color-main
   position fixed
   top (size-header-height - 5px)
   left 0
-  height 'calc(100% - %s)' % size-header-height
-  width 100%
-  opacity 1
-  overflow-y auto
-  overflow-x hidden
+  height 'calc(100% - %s + 5px)' % size-header-height
+  width 90%
+  background color-sub--dark
   z-index z-menu
   transition all 0.4s trans-main
+  text-align right
   
   @media(min-width: media-width-small) and (max-width: media-width-medium)
     overflow visible
-  
-  @media (min-width: media-width-small)
-    top calc(50% - 5px)
-    height auto
     
-  @media (min-width: media-width-medium)
-    top 33%
-    width 300px
+  @media (min-width: media-width-small)
+    width width-menu
+    
+  @media(min-width: media-width-medium)
+    background white
   
   &Hidden
-    visibility hidden
-    opacity 0
+    left -100%
     
     @media (min-width: media-width-medium)
-      visibility visible
-      opacity 1
+      left 0
+
+.navContainer
+  @media(min-width: media-width-small)
+    position relative
+    top 50%
+    transform translateY(-75%)

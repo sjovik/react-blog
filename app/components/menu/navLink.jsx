@@ -5,7 +5,8 @@ import { Link } from 'react-router';
 
 const NavLink = ({link, toggleSubMenu, closeMenu, subMenuIsOpen}) => {
   const renderLink = () => {
-    const activeStyle = { color: '#fff' };
+    // Color main from stylus files, set here since react-router works this way.
+    const activeStyle = { color: 'rgba(211,221,230,1)' };
 
     return (
       <Link activeStyle={activeStyle}

@@ -1,6 +1,6 @@
 import styles from './contact.styl';
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 import Header from '../header';
 import ContactForm from '../form/contactForm';
@@ -15,9 +15,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
-
-Contact.propTypes = {
 };
 
 export default Contact;

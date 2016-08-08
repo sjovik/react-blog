@@ -12,10 +12,6 @@
   &:active,
   &:focus  
     border-bottom 1px solid color-sub--light
-  
-  @media (min-width: media-width-small) and (max-width: media-width-medium)
-    display inline-block
-    margin-right 40px
 
 .navLink
   display block
@@ -26,23 +22,21 @@
   position relative
   text-transform uppercase
 
+@keyframes bounce {
+  0% { right: -20px }
+  100% { right: -26px }
+}
+
 .subMenuLink
-  margin-right 20px
   backface-visibility hidden
   
   &:after
-    content ' >'
-    padding-left 2px
-    transition transform 0.4s trans-main
+    content '>'
+    position absolute
+    right -20px
+    transition all 0.4s trans-main
     font-family font-sans
-  
-    @media(min-width: media-width-small) and (max-width: media-width-medium)
-      position absolute
-      right -18px
-      transform rotate(90deg)
-  
-  &[data-submenu=true]
-    &:after
-      @media(min-width: media-width-small) and (max-width: media-width-medium)
-        transform rotate(270deg)
+    
+  &:hover::after
+    animation bounce anim-bounce
         

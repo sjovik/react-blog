@@ -6,23 +6,32 @@
   top 0
   width 100%
   height 100%
-  background color-secondary
-  left 100%
-  transition left 0.4s trans-main 
+  right 100%
+  transition right 0.4s trans-main
+  background color-sub--dark
   
   &[data-open = true]
-    left 0%
-  
-  @media(min-width: media-width-small) and (max-width: media-width-medium)
-    top 100%
+    right 0%
+
+@keyframes bounce {
+  0% { left: -20px }
+  100% { left: -26px }
+}
 
 .header
-  color #fff
+  line-height 50px
+  height 50px
   font-size 18px
+  color white
   cursor pointer
-  margin-bottom 8px
-  margin-right 50px
   display inline-block
+  position relative
   
-  @media(min-width: media-width-small) and (max-width: media-width-medium)
-    display none  
+  &:before
+    content '<'
+    position absolute
+    left -20px
+    transition all 0.4s trans-main
+    
+  &:hover::before
+    animation bounce anim-bounce

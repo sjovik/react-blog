@@ -7,7 +7,7 @@ import MenuLink from '../../connectors/menuLink';
 const SubMenu = ({menu, isOpen, close}) => (
   <div className={styles.container} data-open={isOpen}>
     <ul className={styles.navList}>
-      <li className={styles.header} onClick={close} >{'< back'}</li>
+      <li className={styles.header} onClick={close} >{'back'}</li>
       {menu.map((item, index) => {
         return <MenuLink link={item} key={index} />;
       })}
