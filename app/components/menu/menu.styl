@@ -8,7 +8,8 @@
   left 0
   height 'calc(100% - %s + 5px)' % size-header-height
   width 90%
-  background color-sub--dark
+  min-width 315px
+  background-color color-sub--dark
   z-index z-menu
   transition all 0.4s trans-main
   text-align right
@@ -20,7 +21,7 @@
     width width-menu
     
   @media(min-width: media-width-medium)
-    background white
+    background-color transparent
   
   &Hidden
     left -100%
